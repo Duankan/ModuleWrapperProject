@@ -1,0 +1,201 @@
+{
+  "name": "kproject-cli",
+  "version": "1.0.0",
+  "description": "",
+  "author": "huangge <huangge@kingtopware.com>",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "docs": "http-server ./docs -p 3000 -o -s",
+    "build": "node build/build.js && node build/deploy.js",
+    "web": "http-server ./dist -p 4000 -o -s --cors",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "e2e": "node test/e2e/runner.js",
+    "test": "npm run unit && npm run e2e",
+    "lint": "eslint --fix --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "release": "standard-version",
+    "update": "npm-check -usp"
+  },
+  "dependencies": {
+    "@ktw/api": "^1.0.0",
+    "@ktw/cache": "^0.1.0",
+    "@ktw/kbus": "^0.2.1",
+    "@ktw/kcharts": "^1.0.1",
+    "@ktw/kcore": "^1.3.9",
+    "@ktw/kmap": "^1.5.0",
+    "@ktw/ktools": "^1.0.6",
+    "@ktw/log": "^0.1.0",
+    "@ktw/message": "^0.1.0",
+    "@ktw/permission": "^0.1.0",
+    "@ktw/queue": "^0.1.0",
+    "babel-polyfill": "^6.26.0",
+    "excellentexport": "^3.3.0",
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0",
+    "x2js": "^3.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^6.0.2",
+    "@ktw/kcore-loader": "^1.0.0",
+    "@vue/test-utils": "^1.0.0-beta.12",
+    "archiver": "^2.1.1",
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^8.2.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-jest": "^22.4.1",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-import": "^1.6.3",
+    "babel-plugin-jsx-v-model": "^2.0.3",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-vue-jsx": "^3.5.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-stage-2": "^6.22.0",
+    "babel-register": "^6.22.0",
+    "chalk": "^2.0.1",
+    "chromedriver": "^2.27.2",
+    "compression-webpack-plugin": "^1.1.3",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-spawn": "^5.0.1",
+    "css-loader": "^0.28.0",
+    "eslint": "^4.18.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-vue": "^4.3.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.4",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.11.1",
+    "husky": "^0.14.3",
+    "jest": "^22.4.2",
+    "jest-serializer-vue": "^1.0.0",
+    "js-yaml": "^3.14.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "lint-staged": "^6.0.0",
+    "nightwatch": "^0.9.12",
+    "node-notifier": "^5.1.2",
+    "npm-check": "^5.5.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "ora": "^1.2.0",
+    "portfinder": "^1.0.13",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.8",
+    "prettier": "^1.11.1",
+    "rimraf": "^2.6.0",
+    "selenium-server": "^3.0.1",
+    "semver": "^5.3.0",
+    "shelljs": "^0.7.6",
+    "standard-version": "^4.3.0",
+    "svg-sprite-loader": "^3.6.2",
+    "svgo": "^1.0.3",
+    "svgo-loader": "^2.1.0",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "url-loader": "^0.6.2",
+    "vue-jest": "^2.1.1",
+    "vue-loader": "^14.2.3",
+    "vue-style-loader": "^3.1.2",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.11.0",
+    "webpack-bundle-analyzer": "^2.10.0",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1",
+    "yml-loader": "^2.1.0"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "commitlint": {
+    "rules": {
+      "body-leading-blank": [
+        1,
+        "always"
+      ],
+      "footer-leading-blank": [
+        1,
+        "always"
+      ],
+      "header-max-length": [
+        2,
+        "always",
+        72
+      ],
+      "scope-case": [
+        2,
+        "always",
+        "lower-case"
+      ],
+      "subject-case": [
+        0,
+        "never",
+        [
+          "sentence-case",
+          "start-case",
+          "pascal-case",
+          "upper-case"
+        ]
+      ],
+      "subject-empty": [
+        2,
+        "never"
+      ],
+      "subject-full-stop": [
+        2,
+        "never",
+        "."
+      ],
+      "type-case": [
+        2,
+        "always",
+        "lower-case"
+      ],
+      "type-empty": [
+        2,
+        "never"
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "build",
+          "ci",
+          "chore",
+          "docs",
+          "feat",
+          "fix",
+          "perf",
+          "refactor",
+          "revert",
+          "style",
+          "test"
+        ]
+      ]
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix --ext .js,.vue src test/unit/specs test/e2e/specs",
+      "git add --force"
+    ],
+    "*.{json,md,css,scss,less}": [
+      "prettier --write",
+      "git add --force"
+    ]
+  }
+}

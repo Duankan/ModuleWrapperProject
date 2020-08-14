@@ -1,0 +1,24 @@
+# 项目部署配置
+
+# 定义格式:
+
+# name 变量名
+# description 变量名描述
+# type 变量类型(0代表字符串、1代表数字、2代表ip地址)
+
+-
+  name: basicUrl
+  description: 基础服务地址
+  type: 2
+-
+  name: YunServicesUrl
+  description: 云盘服务地址
+  type: 2
+-
+  name: socket
+  description: socket消息服务地址
+  type: 2
+-
+  name: raven
+  description: sentry服务监控地址
+  type: 2

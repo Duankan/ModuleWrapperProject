@@ -1,0 +1,62 @@
+// 清除浮动
+.clearfix {
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+// 文本溢出省略
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// chrome、safari滚动条
+.scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+// 地图配置
+/deep/.leaflet-top,
+/deep/.leaflet-bottom {
+  z-index: 800 !important;
+}
+
+.k-mouse-position {
+  position: absolute;
+  font-size: 16px;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 800;
+}
+
+.k-maptool {
+  top: 12px;
+  left: 80px;
+  border-radius: 2px;
+  z-index: 900;
+  /deep/ .k-maptool-btn {
+    padding: 4px 10px !important;
+  }
+}
+
+/deep/.leaflet-iconLayers-layer {
+  width: 60px;
+  height: 60px;
+}

@@ -1,0 +1,146 @@
+# 项目 api 环境变量配置
+project:
+  baseUrl: http://192.168.1.117:8090
+  YunServicesUrl: http://192.168.1.176:15000
+  basicplatform: http://192.168.1.238:8080/nsbi/
+# iframe嵌套初始化地址
+initCfg:
+  initUrl: 'basicplatform-highgis-portal/main.html#/userCenter'
+
+# 项目信息配置
+system:
+  title: 深入浅出vue # 应用程序标题
+  introduction: TopHighGIS高性能云GIS平台是湖北金拓维信息技术有限公司开发的，具有完全自主知识产权的GIS平台产品. # 应用程序描述信息
+  copyright: Copyright &copy; 2019 湖北金拓维信息技术有限公司 # 版权信息
+  logoUrl: static/images/brand.jpg # LOGO 图片
+  expiredTime: 5 # 登录过期时间(单位:小时)
+
+# 地图信息配置
+map:
+  center: # 地图中心点
+    lat: 26.8093
+    lng: 112.5302
+  zoom: 9 # 当前展示级别
+  maxZoom: 21 #最大级别
+  plugin: # 地图工具栏配置
+    - {
+        plugin: HomeView,
+        option: { size: 16, imgColor: '#2D8CF0', center: { lat: 26.8093, lng: 112.5302 }, zoom: 9 },
+      }
+    - { plugin: 'PreView', option: { size: 16, imgColor: '#2D8CF0' } }
+    - { plugin: 'NextView', option: { size: 16, imgColor: '#2D8CF0' } }
+    - { plugin: 'Position', option: { size: 16, imgColor: '#2D8CF0' } }
+    - {
+        plugin: 'Measure',
+        option:
+          {
+            type: 'length',
+            content: '测量长度',
+            iconClass: 'measurelength',
+            size: 16,
+            imgColor: '#2D8CF0',
+          },
+      }
+    - {
+        plugin: 'Measure',
+        option:
+          {
+            type: 'area',
+            content: '测量面积',
+            iconClass: 'measurearea',
+            size: 16,
+            imgColor: '#2D8CF0',
+          },
+      }
+    - { plugin: 'PointQuery', option: { size: 16, imgColor: '#2D8CF0' } }
+    - { plugin: 'PolygonQuery', option: { size: 16, imgColor: '#2D8CF0' } }
+    - { plugin: 'RectQuery', option: { size: 16, imgColor: '#2D8CF0' } }
+    - { plugin: 'ClearMapTools', option: { size: 16, imgColor: '#2D8CF0' } }
+  miniMapConfig: # 鹰眼配置
+    position: 'bottomright' #控件位置
+    toggleDisplay: true #小地图是否能收缩
+    zoomLevelOffset: -5 #小地图的相对缩放级别
+    minimized: false #初始化的时候是否隐藏小地图
+    width: 125 #小地图容器的宽度
+    height: 80 #小地图容器的高度
+    zoomAnimation: true
+    aimingRectOptions: #视图块的样式设置
+      color: '#ff7800'
+      weight: 1
+    shadowRectOptions: #移动视图块的样式
+      color: '#ff0000'
+      weight: 1
+      opacity: 0
+      fillOpacity: 0
+    strings: #设置小地图显示、隐藏的文字
+      hideText: '隐藏鹰眼'
+      showText: '打开鹰眼'
+  miniMapData: # 鹰眼数据配置
+    - {
+        type: 'wms',
+        url: 'http://192.168.1.90:8086/hgis/ows?service=WMS&version=1.1.1&request=GetMap&width=800&height=600&layers=ktw:vital&srs=EPSG:4490&styles=polygon&bbox=111.53945903900006,26.103139472000066,113.28147290500007,27.47210191300004&format=image/png',
+      }
+  baseLayer: #底图数据配置
+    ktw:vital:
+      serversurl: http://192.168.1.90:8086/hgis/ows?service=WMS&version=1.1.1&request=GetMap&width=800&height=600&layers=ktw:vital&srs=EPSG:4490&styles=polygon&bbox=111.53945903900006,26.103139472000066,113.28147290500007,27.47210191300004&format=image/png
+      wfsurl: http://192.168.1.166:8080/geoserver/sdk/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sdk:bou2_4p&maxFeatures=50&outputFormat=application%2Fjson
+      showTitle: 矢量
+      icon: '../../src/assets/baselayer/wms.png'
+    ktw:DOMdanfu:
+      serversurl: http://192.168.1.63:8086/hgis/wmts?service=WMTS&request=GetTile&layers=ktw:DOMdanfu&Version=1.0.0&Format=image/png&TileMatrix=0&TileCol=0&TileRow=0
+      wmtsOptions:
+        tilematrixSet: 'EPSG:4490'
+        noWrap: true
+      showTitle: 影像
+      icon: '../../src/assets/baselayer/wmts.png'
+  baseLayerConfig: # 底图组件形态配置
+    position: 'bottomright'
+    behavior: 'previous' # 'previous', 'expanded' or 'first'
+    expand: 'horizontal' #'horizontal' or 'vertical'
+
+# websocket服务地址
+socket: http://192.168.1.68:8020
+
+# raven服务监控地址
+#  key: raven服务生成的唯一key
+#  sentryUrl: sentry服务部署的地址
+#  project: sentry中创建的项目名称
+#  例子： https://${key}@${sentryUrl}/${project}
+
+raven: https://${key}@${sentryUrl}/${project}
+
+# 系统路由配置
+
+# path: string;  // 路由匹配路径
+# component?: Component;  // 路由匹配的单一组件，多组件展示请使用components属性，异步路由 () => import('view/login/Login')
+# name?: string; // 命名路由
+# components?: { [name: string]: Component }; // 命名视图组件  同时（同级）展示多个视图，而不是嵌套展示时使用。
+# redirect?: string | Location | Function;   // 路由重定向跳转
+# props?: boolean | string | Function;  是否将路由参数作为props传递给路由组件 详细用法： https://router.vuejs.org/zh-cn/essentials/passing-props.html
+# alias?: string | Array<string>;   { path: '/a', component: A, alias: '/b' }  访问/b等同访问/a
+# children?: Array<RouteConfig>; // 嵌套路由
+# beforeEnter?: (to: Route, from: Route, next: Function) => void;  详情见同级目录下index.js中关于路由钩子的注释部分
+# meta?: any;  路由元信息 用以绑定该路由相关信息 详细用法：https://router.vuejs.org/zh-cn/advanced/meta.html
+# caseSensitive?: boolean; // 匹配规则是否大小写敏感？(默认值：false)
+# pathToRegexpOptions?: Object; // 编译正则的选项
+
+# 详情见： https://router.vuejs.org/zh-cn/api/options.html#routes
+
+# 路由白名单 匹配该路径的地址将不会被校验权限
+whiteList:
+  - '/login'
+  - '/register'
+# 异步权限路由
+# 示例：
+routes:
+  DashBoard:
+    path: '/'
+    component: 'view/dashboard/DashBoard'
+    redirect: '/study-vue'
+    children:
+      Directive:
+        path: '/study-vue'
+        component: 'view/directive/Directive'
+      Iframe:
+        path: '/iframe'
+        component: 'view/iframe/Iframe'

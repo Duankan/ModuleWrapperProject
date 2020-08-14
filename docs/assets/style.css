@@ -1,0 +1,25 @@
+.cover-main {
+  color: #fff;
+}
+.cover-main .anchor span {
+  color: #fff;
+}
+
+.cover-main .medium-zoom-image {
+  margin-bottom: -40px;
+}
+
+body section.cover .cover-main > p:last-child a:last-child {
+  background-color: transparent;
+  padding: 8px 80px;
+  border-color: #fff;
+  margin-top: 16px;
+}
+body section.cover .cover-main > p:last-child a:last-child:hover {
+  background-color: #fff;
+  color: #2d8cf0;
+}
+
+.mask {
+  display: none;
+}

@@ -20,17 +20,16 @@ declare type RouteConfig = {
 import Login from 'view/user/Login';
 import DashBoard from 'view/dashboard/DashBoard';
 
-const routes = [
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
-  },
-  {
-    path: '/',
-    name: 'DashBoard',
-    component: DashBoard,
-  }
+const routes = [{
+        path: '/login',
+        name: 'Login',
+        component: Login,
+    }
+    // {
+    //   path: '/',
+    //   name: 'DashBoard',
+    //   component: DashBoard,
+    // }
 ];
 
 export default routes;

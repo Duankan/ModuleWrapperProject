@@ -3,6 +3,8 @@ import Vue from 'vue';
 import view from '@/view';
 import { PanelLoader } from '@/moduleloader';
 import { ModuleLoader } from '@/moduleloader';
+import custom from 'custom';
+import config from 'config';
 export default {
   name: 'Directive',
   components: view,
@@ -62,6 +64,8 @@ export default {
     },
     //打开面板
     async openPanel(item) {
+      console.log(custom);
+      console.log(config);
       let moduleInst = null;
       if (!L.Util.isNull(item)) {
         moduleInst = ModuleLoader.getModule(item.panelId);

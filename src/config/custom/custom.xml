@@ -1,0 +1,21 @@
+<qxLayer>
+  <title>山西省县级行政区</title>
+  <layer>ktw:xzq_xj</layer>
+  <code>XZQDM</code>
+  <yjfield>XZQMC</yjfield>
+  <flmc>XZQMC_SHI</flmc>
+  <zindex>100</zindex>
+  <bringToFront>true</bringToFront>
+  <visible>true</visible>
+  <cols>
+    <col>
+      <name>1</name>
+      <key>k1</key>
+    </col>
+    <col>
+      <name>1</name>
+      <key>k1</key>
+    </col>
+  </cols>
+  <zhangty>papapa</zhangty>
+</qxLayer>

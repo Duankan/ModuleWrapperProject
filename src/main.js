@@ -14,7 +14,7 @@ import router from '@/router';
 import App from './App';
 import '@/settings';
 import '@/components';
-import '@/config/system/k-config-api';
+// import '@/config/system/k-config-api';
 import '@/styles/index.less';
 
 Vue.config.devtools = true;
